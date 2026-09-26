@@ -1,148 +1,536 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="gu">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deepak Wadhwa - Learning Community</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<title>ગુજરાતી Trader | Stock Market Education</title>
+
+<meta name="description" content="ગુજરાતી Trader - Stock Market Education and learning resources in Gujarati.">
+<meta name="robots" content="index,follow">
 
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html,body{
+  width:100%;
+  min-height:100%;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#06100d;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+.container{
+  width:100%;
+  max-width:1050px;
+  margin:auto;
+  padding:0 16px;
+}
+
+/* TOP */
+.top{
+  padding:14px 0;
+}
+
+.top-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  min-width:0;
+}
+
+.brand img{
+  width:40px;
+  height:40px;
+  border-radius:11px;
+  object-fit:cover;
+  flex-shrink:0;
+}
+
+.brand-name{
+  font-size:16px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.badge{
+  font-size:9px;
+  color:#6fffc0;
+  border:1px solid rgba(80,255,180,.25);
+  background:rgba(80,255,180,.07);
+  padding:6px 8px;
+  border-radius:20px;
+  white-space:nowrap;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:32px 0 20px;
+}
+
+.hero-logo{
+  width:88px;
+  height:88px;
+  padding:4px;
+  margin:0 auto 18px;
+  border-radius:25px;
+  background:linear-gradient(135deg,#25ffa5,#42aaff);
+  box-shadow:0 12px 35px rgba(0,255,170,.16);
+}
+
+.hero-logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  border-radius:21px;
+}
+
+.tag{
+  display:inline-block;
+  font-size:10px;
+  font-weight:700;
+  color:#8affcb;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.09);
+  padding:7px 11px;
+  border-radius:20px;
+  margin-bottom:15px;
+}
+
+h1{
+  font-size:clamp(32px,10vw,60px);
+  line-height:1.08;
+  letter-spacing:-1.5px;
+  margin-bottom:14px;
+}
+
+.gradient{
+  background:linear-gradient(90deg,#36ffa7,#62caff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.description{
+  width:100%;
+  max-width:600px;
+  margin:auto;
+  color:#aebcb7;
+  font-size:14px;
+  line-height:1.65;
+}
+
+/* BUTTON */
+.button-area{
+  margin-top:22px;
+}
+
+.telegram{
+  width:100%;
+  max-width:390px;
+  min-height:54px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  text-decoration:none;
+  color:#03130d;
+  background:linear-gradient(135deg,#32ffa5,#5ecaff);
+  border-radius:14px;
+  font-size:15px;
+  font-weight:900;
+  box-shadow:0 10px 30px rgba(40,255,170,.18);
+  -webkit-tap-highlight-color:transparent;
+}
+
+.telegram:active{
+  transform:scale(.98);
+}
+
+.tg-icon{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:#07120e;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+}
+
+.note{
+  margin-top:9px;
+  color:#697873;
+  font-size:10px;
+}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:35px;
+}
+
+.card{
+  padding:18px 15px;
+  border-radius:18px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.icon{
+  width:38px;
+  height:38px;
+  border-radius:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(45,255,170,.08);
+  margin-bottom:12px;
+  font-size:19px;
+}
+
+.card h3{
+  font-size:14px;
+  margin-bottom:7px;
+}
+
+.card p{
+  color:#84938d;
+  font-size:11px;
+  line-height:1.55;
+}
+
+/* CHART */
+.chart-box{
+  margin-top:15px;
+  padding:16px;
+  border-radius:20px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.chart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.chart-title{
+  font-size:13px;
+  font-weight:800;
+}
+
+.education{
+  color:#61ffb6;
+  font-size:9px;
+  padding:5px 7px;
+  background:rgba(60,255,170,.08);
+  border-radius:6px;
+}
+
+.chart{
+  position:relative;
+  height:120px;
+  overflow:hidden;
+  border-radius:12px;
+  background:
+    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:30px 30px;
+}
+
+.trend{
+  position:absolute;
+  width:115%;
+  height:70%;
+  left:-7%;
+  top:30%;
+  border-top:3px solid #42ffad;
+  transform:rotate(-12deg);
+  filter:drop-shadow(0 0 6px rgba(66,255,173,.4));
+}
+
+/* DISCLAIMER */
+.disclaimer{
+  margin-top:15px;
+  padding:15px;
+  border-radius:14px;
+  border:1px solid rgba(255,200,70,.12);
+  background:rgba(255,200,70,.035);
+  color:#969d98;
+  text-align:center;
+  font-size:10px;
+  line-height:1.65;
+}
+
+.disclaimer strong{
+  color:#d2c995;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px 10px 8px;
+  color:#5e6b66;
+  font-size:10px;
+}
+
+footer strong{
+  color:#8b9792;
+}
+
+.promoter{
+  text-align:center;
+  padding:0 10px 25px;
+}
+
+.promoter a{
+  color:#66736e;
+  text-decoration:none;
+  font-size:10px;
+}
+
+.promoter strong{
+  color:#8b9792;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+  .top{
+    padding:12px 0;
   }
 
-  .card {
-    width: 85%;
-    max-width: 340px; 
-    background: #010a0f;
-    border: 1.5px solid #00d2ff;
-    border-radius: 35px;
-    padding: 20px 15px;
-    text-align: center;
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
+  .container{
+    padding-left:14px;
+    padding-right:14px;
   }
 
-  .profile-img {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 3px solid #00d2ff;
-    object-fit: cover;
-    margin-top: -5px;
-    box-shadow: 0 0 15px #00d2ff;
+  .hero{
+    padding-top:28px;
   }
 
-  h1 {
-    color: #fff;
-    font-size: 20px;
-    margin: 15px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  .cards{
+    grid-template-columns:1fr;
+    gap:9px;
   }
 
-  .features {
-    text-align: left;
-    margin: 0 auto;
-    width: 90%;
+  .card{
+    display:grid;
+    grid-template-columns:42px 1fr;
+    column-gap:12px;
+    align-items:center;
+    padding:15px;
   }
 
-  .feature-item {
-    color: #ccc;
-    font-size: 13px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
+  .icon{
+    grid-row:span 2;
+    margin:0;
   }
 
-  .feature-item:last-child { border-bottom: none; }
-
-  .icon { margin-right: 12px; font-size: 16px; }
-
-  .join-text {
-    color: #eee;
-    font-size: 12px;
-    margin: 20px 0 12px;
-    font-weight: 300;
+  .card h3{
+    margin:0 0 4px;
   }
 
-  .telegram-btn {
-    display: block;
-    background: linear-gradient(90deg, #00d2ff 0%, #9247ff 100%);
-    color: white;
-    text-decoration: none;
-    padding: 14px;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 12px rgba(0, 210, 255, 0.3);
+  .card p{
+    margin:0;
+  }
+}
+
+/* VERY SMALL PHONES */
+@media(max-width:360px){
+
+  .brand-name{
+    font-size:14px;
   }
 
-  .hindi-quote {
-    color: #bbb;
-    font-size: 13px;
-    margin-bottom: 20px;
-    line-height: 1.4;
+  .badge{
+    font-size:8px;
+    padding:5px 6px;
   }
 
-  .footer-box {
-    border: 1px solid rgba(0, 210, 255, 0.2);
-    border-radius: 12px;
-    padding: 8px;
-    font-size: 11px;
-    color: #888;
+  h1{
+    font-size:31px;
   }
 
-  /* Link styling for Agency */
-  .footer-box a { 
-    color: #00d2ff; 
-    font-weight: bold; 
-    text-decoration: none;
+  .description{
+    font-size:13px;
   }
 
-  .disclaimer {
-    font-size: 9px;
-    color: #444;
-    margin-top: 12px;
+  .telegram{
+    min-height:52px;
+    font-size:14px;
   }
+}
 </style>
 </head>
+
 <body>
 
-<div class="card">
-  <img src="https://i.ibb.co/FkV61CBG/711752123-122102238423341553-4586529772719677765-n.jpg" alt="Munaaf" class="profile-img">
+<!-- HEADER -->
+<header class="top">
+  <div class="container top-inner">
 
-  <h1>Munaaf</h1>
+    <div class="brand">
+      <img
+        src="https://i.ibb.co/cXYNZ42T/h-Jziqxz0-Td-H7-UJv-6-Z5-Lu9g-Kwnmgy-VJs71dg-LKivt-Seyi-FW0-E8-OKML9-WKWXn-MNm-U3-T8nk9-MS3-Fxuu-Z7-V04-Wfo-Gg-G.jpg"
+        alt="ગુજરાતી Trader Logo">
+      <div class="brand-name">ગુજરાતી Trader</div>
+    </div>
 
-  <div class="features">
-    <div class="feature-item"><span class="icon"></span> Learning & Educational Sessions</div>
-    <div class="feature-item"><span class="icon"></span> Market Concepts & Awareness</div>
-    <div class="feature-item"><span class="icon"></span> Chart Reading Concepts</div>
-    <div class="feature-item"><span class="icon"></span> Educational Case Discussions</div>
+    <div class="badge">MARKET EDUCATION</div>
+
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+
+    <div class="hero-logo">
+      <img
+        src="https://i.ibb.co/cXYNZ42T/h-Jziqxz0-Td-H7-UJv-6-Z5-Lu9g-Kwnmgy-VJs71dg-LKivt-Seyi-FW0-E8-OKML9-WKWXn-MNm-U3-T8nk9-MS3-Fxuu-Z7-V04-Wfo-Gg-G.jpg"
+        alt="ગુજરાતી Trader">
+    </div>
+
+    <div class="tag">📊 STOCK MARKET EDUCATION</div>
+
+    <h1>
+      Learn The Market.<br>
+      <span class="gradient">Trade With Knowledge.</span>
+    </h1>
+
+    <p class="description">
+      ગુજરાતી Trader દ્વારા stock market વિશે શીખવા માટે
+      educational content, market concepts અને useful learning
+      resources મેળવો.
+    </p>
+
+    <div class="button-area">
+
+      <a
+        class="telegram"
+        href="https://t.me/+od1yMkAmUGM1MmRl"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        <span class="tg-icon">➤</span>
+        JOIN FREE TELEGRAM
+
+      </a>
+
+      <div class="note">
+        Free educational community • No guaranteed returns
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CONTENT -->
+<section class="container">
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icon">📚</div>
+      <div>
+        <h3>Learn & Understand</h3>
+        <p>
+          Stock market basics, concepts and educational resources.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon">📈</div>
+      <div>
+        <h3>Market Insights</h3>
+        <p>
+          Learn how traders study charts, trends and market information.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon">🎯</div>
+      <div>
+        <h3>Build Knowledge</h3>
+        <p>
+          Improve your understanding of market behaviour and research.
+        </p>
+      </div>
+    </div>
+
   </div>
 
-  <p class="join-text">Join our learning community and grow your knowledge</p>
 
-  <a href="https://t.me/+VQKcLntbMYhjOGJl" class="telegram-btn">JOIN TELEGRAM</a>
+  <!-- CHART -->
+  <div class="chart-box">
 
-  <p class="hindi-quote">     ,     </p>
+    <div class="chart-header">
+      <div class="chart-title">Market Learning</div>
+      <div class="education">EDUCATIONAL</div>
+    </div>
 
-  <div class="footer-box">
-    This Channel Advertise By <a href="https://t.me/+3XoqJNLxYHswNTc1" target="_blank">AD BUILD AGENCY</a>
+    <div class="chart">
+      <div class="trend"></div>
+    </div>
+
   </div>
 
+
+  <!-- DISCLAIMER -->
   <div class="disclaimer">
-    Terms | Privacy | Disclaimer <br>
-    This site is not part of Facebook� or endorsed by Facebook�.
+    <strong>Risk Disclosure:</strong>
+    Stock market investments are subject to market risks.
+    The information provided on this page is for educational
+    and informational purposes only and should not be considered
+    investment advice or a guarantee of returns. Please conduct
+    your own research and consider your risk tolerance before
+    making any investment decision.
   </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  © 2026 <strong>ગુજરાતી Trader</strong> · Educational Community
+</footer>
+
+<div class="promoter">
+  <a
+    href="https://t.me/+3XoqJNLxYHswNTc1"
+    target="_blank"
+    rel="noopener noreferrer">
+    Promoted By <strong>AD BUILD AGENCY</strong>
+  </a>
 </div>
 
 </body>
